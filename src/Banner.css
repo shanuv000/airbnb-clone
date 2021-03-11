@@ -28,16 +28,13 @@
 .banner__info > h5 {
     margin-top: 10px;
 }
-
-.banner__searchButton {
+.banner__searchButton{
     background-color: white !important;
     font-weight: 900 !important;
-    text-transform: inherit !important;
-    color: #ff7779 !important;
+    text-transform: inherit!important;
+    color: #ff7779!important;
 }
-
-.banner__search {
-    display: flex;
-    flex-direction: column;
+.banner__search{
+    display: flex;flex-direction: column;
 
 }
