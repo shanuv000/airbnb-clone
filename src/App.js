@@ -1,13 +1,15 @@
 import './App.css';
 import React from 'react';
+import Home from './Home';
+import Header from "./Header";
 
-function App() {
+const App = () => {
     return (
         //Bem
         <div className="app">
-            <h1>Hey Clever Programmer, Let's build Airbnb Clone</h1>
-            {/*<Home/>*/}
-            {/*<Header/>*/}
+            <Header/>
+            <Home/>
+
             {/*<Banner/>*/}
             {/*Search*/}
             {/*<Cards/>*/}
