@@ -1,39 +1,43 @@
-import React, {useState} from "react";
-import './Search.css';
-import "react-date-range/dist/styles.css";  //Main Style file
-import {DateRangePicker} from "react-date-range";
+import React, { useState } from "react";
+import "./Search.css";
+import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import {Button} from "@material-ui/core";  //theme css file
-import PeopleIcon from '@material-ui/icons/People';
+import { DateRangePicker } from "react-date-range";
+import { Button } from "@material-ui/core";
+import PeopleIcon from "@material-ui/icons/People";
 
 const Search = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+  // State for start and end dates of the date range
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
-    const selectionRange = {
-        startDate: startDate,
-        endDate: endDate,
-        key: "selection"
-    }
+  // Object representing the selected date range
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  };
 
-    function handleSelect(ranges) {
-        setStartDate(ranges.selection.startDate);
-        setEndDate(ranges.selection.endDate);
+  // Function to handle date range selection
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
 
-    }
+  return (
+    <div className="search">
+      {/* Date Range Picker Component */}
+      <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
+      {/* Number of Guests Input */}
+      <div className="search__guests">
+        <h2>Number of Guests</h2>
+        <PeopleIcon />
+        <input min={0} defaultValue={2} type="number" />
+      </div>
+      {/* Search Button */}
+      <Button variant="outlined">Search Airbnb</Button>
+    </div>
+  );
+};
 
-    return (
-        //Date Picker Component
-
-        <div className="search">
-            <DateRangePicker ranges={
-                [selectionRange]} onChange={handleSelect}/>
-            <h2>Number of Guests
-                <PeopleIcon/>
-            </h2>
-            <input min={0} defaultValue={2} type="number"/>
-            <Button>Search Airbnb</Button>
-        </div>
-    )
-}
 export default Search;
